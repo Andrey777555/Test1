@@ -10,8 +10,8 @@
     region: us-east-2
     count: 1
     vpc_subnet_id: vpc-06159efcf16a953df
-    aws_access_key: AKIAWL2XH4CZST7PKRUP
-    aws_secret_key: 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
+    aws_access_key: 
+    aws_secret_key: 
   tasks:
      - name: Create AWS EC2
        ec2:
