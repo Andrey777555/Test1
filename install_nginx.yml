@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+  name: configuration play
+  gather_facts: true
+  become: yes
+  tasks:
+  - name: Install Nginx
+    yum:
+        name=nginx
+        state=latest
+
+  - name: start nginx
+    service:
+      name: nginx
+      state: started

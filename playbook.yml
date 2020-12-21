@@ -1,0 +1,29 @@
+# AWS playbook
+---
+- hosts: local
+  connection: local
+  gather_facts: False
+  vars:
+    keypair: Admin
+    instance_type: t2.micro
+    image: ami-09558250a3419e7d0
+    region: us-east-2
+    count: 1
+    vpc_subnet_id: vpc-06159efcf16a953df
+    aws_access_key: AKIAWL2XH4CZST7PKRUP
+    aws_secret_key: 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
+  tasks:
+     - name: Create AWS EC2
+       ec2:
+         key_name: "{{ keypair }}"
+         instance_type: "{{ instance_type }}"
+         image: "{{ image }}"
+         region: "{{ region }}"
+         vpc_subnet_id: "{{ vpc_subnet_id }}"
+         instance_tags:
+           Name: Ansible AWS
+           Type: Ansible EC2
+         count: "{{ count }}"
+         wait: true
+         aws_access_key: "{{ aws_access_key }}"
+         aws_secret_key: "{{ aws_secret_key }}"
